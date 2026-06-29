@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --surface: #f8f9ff;
+  --surface-rgb: 248 249 255;
+  --background: #f8f9ff;
+  --tertiary: #46566c;
+  --inverse-surface: #27313f;
+  --on-primary-fixed: #00174b;
+  --on-primary-fixed-variant: #003ea8;
+  --primary-fixed: #dbe1ff;
+  --on-primary-container: #eeefff;
+  --surface-container-highest: #d9e3f6;
+  --secondary-fixed-dim: #adc6ff;
+  --surface-container-low: #eff4ff;
+  --on-tertiary-container: #e9f0ff;
+  --on-secondary-fixed: #001a42;
+  --on-error: #ffffff;
+  --primary-container: #2563eb;
+  --primary-container-rgb: 37 99 235;
+  --outline: #737686;
+  --outline-rgb: 115 118 134;
+  --inverse-on-surface: #eaf1ff;
+  --outline-variant: #c3c6d7;
+  --outline-variant-rgb: 195 198 215;
+  --surface-tint: #0053db;
+  --on-tertiary: #ffffff;
+  --surface-bright: #f8f9ff;
+  --on-surface: #121c2a;
+  --tertiary-container: #5e6e85;
+  --secondary-fixed: #d8e2ff;
+  --tertiary-fixed: #d3e4fe;
+  --on-primary: #ffffff;
+  --surface-dim: #d0dbed;
+  --on-secondary-fixed-variant: #004395;
+  --inverse-primary: #b4c5ff;
+  --on-error-container: #93000a;
+  --on-tertiary-fixed: #0b1c30;
+  --tertiary-fixed-dim: #b7c8e1;
+  --surface-container-high: #dee9fc;
+  --on-background: #121c2a;
+  --surface-container: #e6eeff;
+  --on-secondary: #ffffff;
+  --error: #ba1a1a;
+  --on-surface-variant: #434655;
+  --on-surface-variant-rgb: 67 70 85;
+  --secondary-container: #2170e4;
+  --surface-container-lowest: #ffffff;
+  --surface-container-lowest-rgb: 255 255 255;
+  --surface-variant: #d9e3f6;
+  --surface-variant-rgb: 217 227 246;
+  --on-tertiary-fixed-variant: #38485d;
+  --on-secondary-container: #fefcff;
+  --secondary: #0058be;
+  --primary: #004ac6;
+  --primary-rgb: 0 74 198;
+  --error-container: #ffdad6;
+  --primary-fixed-dim: #b4c5ff;
+  --grid-color: rgba(37, 99, 235, 0.05);
+}
+
+.dark {
+  --surface: #0d1117;
+  --surface-rgb: 13 17 23;
+  --background: #0d1117;
+  --tertiary: #8b949e;
+  --inverse-surface: #ffffff;
+  --on-primary-fixed: #e2eeff;
+  --on-primary-fixed-variant: #58a6ff;
+  --primary-fixed: #1f6feb;
+  --on-primary-container: #e2eeff;
+  --surface-container-highest: #30363d;
+  --secondary-fixed-dim: #388bfd;
+  --surface-container-low: #161b22;
+  --on-tertiary-container: #f0f6fc;
+  --on-secondary-fixed: #e2eeff;
+  --on-error: #ffffff;
+  --primary-container: #1f6feb;
+  --primary-container-rgb: 31 111 235;
+  --outline: #8b949e;
+  --outline-rgb: 139 148 158;
+  --inverse-on-surface: #0d1117;
+  --outline-variant: #30363d;
+  --outline-variant-rgb: 48 54 61;
+  --surface-tint: #58a6ff;
+  --on-tertiary: #000000;
+  --surface-bright: #21262d;
+  --on-surface: #c9d1d9;
+  --tertiary-container: #30363d;
+  --secondary-fixed: #1f6feb;
+  --tertiary-fixed: #21262d;
+  --on-primary: #000000;
+  --surface-dim: #0d1117;
+  --on-secondary-fixed-variant: #58a6ff;
+  --inverse-primary: #004ac6;
+  --on-error-container: #ffdad6;
+  --on-tertiary-fixed: #8b949e;
+  --tertiary-fixed-dim: #30363d;
+  --surface-container-high: #21262d;
+  --on-background: #c9d1d9;
+  --surface-container: #161b22;
+  --on-secondary: #000000;
+  --error: #ff7b72;
+  --on-surface-variant: #8b949e;
+  --on-surface-variant-rgb: 139 148 158;
+  --secondary-container: #1f6feb;
+  --surface-container-lowest: #010409;
+  --surface-container-lowest-rgb: 1 4 9;
+  --surface-variant: #161b22;
+  --surface-variant-rgb: 22 27 34;
+  --on-tertiary-fixed-variant: #8b949e;
+  --on-secondary-container: #f0f6fc;
+  --secondary: #388bfd;
+  --primary: #58a6ff;
+  --primary-rgb: 88 166 255;
+  --error-container: #8e1519;
+  --primary-fixed-dim: #388bfd;
+  --grid-color: rgba(255, 255, 255, 0.03);
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--on-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@layer components {
+  .container-custom {
+    @apply mx-auto w-full max-w-[1280px] px-5 md:px-6;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded px-5 py-2.5 text-label-md font-medium tracking-widest uppercase transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-container text-white hover:bg-primary shadow-sm hover:shadow-md;
+  }
+  
+  .btn-secondary {
+    @apply border border-outline-variant bg-transparent text-on-surface hover:bg-surface-variant hover:border-outline;
+  }
+
+  .section-padding {
+    @apply py-[80px] md:py-[160px];
+  }
+  
+  .bg-grid {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+                      linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  }
+  
+  .bg-grid-white {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
+  
+  .marquee {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: 2rem;
+    /* Soft fade at the edges of the marquee */
+    mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, transparent);
+  }
+  
+  .marquee-content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: 2rem;
+    animation: scroll 40s linear infinite;
+  }
+  
+  /* Pause both marquee tracks simultaneously on hover to avoid misalignment glitch */
+  .marquee:hover .marquee-content {
+    animation-play-state: paused;
+  }
+  
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100% - 2rem)); }
+  }
+}
