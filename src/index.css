@@ -125,7 +125,6 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
@@ -170,31 +169,67 @@ body {
   }
   
   .marquee {
+    --marquee-gap: 2rem;
     display: flex;
     overflow: hidden;
     user-select: none;
-    gap: 2rem;
+    gap: var(--marquee-gap);
     /* Soft fade at the edges of the marquee */
     mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, transparent);
   }
   
   .marquee-content {
+    --marquee-gap: 2rem;
     flex-shrink: 0;
     display: flex;
     justify-content: space-around;
     min-width: 100%;
-    gap: 2rem;
+    gap: var(--marquee-gap);
     animation: scroll 40s linear infinite;
+  }
+
+  /* Dynamically adjust marquee calculation when gap-12 is applied via Tailwind */
+  .marquee-content.gap-12 {
+    --marquee-gap: 3rem;
   }
   
   /* Pause both marquee tracks simultaneously on hover to avoid misalignment glitch */
   .marquee:hover .marquee-content {
     animation-play-state: paused;
   }
-  
-  @keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(calc(-100% - 2rem)); }
-  }
+}
+
+/* Global Marquee Animation Keyframes */
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - var(--marquee-gap))); }
+}
+
+/* Custom Scrollbar for Terminal Screen */
+.custom-terminal-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-terminal-scrollbar::-webkit-scrollbar-track {
+  background: #161b22;
+  border-radius: 4px;
+}
+
+.custom-terminal-scrollbar::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 4px;
+}
+
+.custom-terminal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #8b949e;
+}
+
+/* Cross-browser Scrollbar Hiding Utility */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

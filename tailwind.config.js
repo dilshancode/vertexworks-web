@@ -84,6 +84,7 @@ export default {
         "headline-md": ["Geist", "sans-serif"],
         "body-lg": ["Inter", "sans-serif"],
         "body-md": ["Inter", "sans-serif"],
+        "body-sm": ["Inter", "sans-serif"],
         "label-md": ["Geist", "sans-serif"]
       },
       fontSize: {
@@ -94,6 +95,7 @@ export default {
         "headline-md": ["30px", { lineHeight: "38px", letterSpacing: "-0.01em", fontWeight: "600" }],
         "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "0em", fontWeight: "400" }],
         "body-md": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+        "body-sm": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
         "headline-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "600" }],
         "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "500" }]
       },

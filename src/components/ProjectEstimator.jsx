@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { Calendar, Calculator, ArrowRight, Check } from 'lucide-react';
 
 const projectTypes = [

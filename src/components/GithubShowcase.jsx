@@ -49,6 +49,7 @@ const GithubShowcase = () => {
   const [terminalText, setTerminalText] = useState('');
   
   const containerRef = useRef(null);
+  const terminalRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   useEffect(() => {
@@ -66,6 +67,12 @@ const GithubShowcase = () => {
     
     return () => clearInterval(interval);
   }, [isInView, activeTab]);
+
+  useEffect(() => {
+    if (terminalRef.current) {
+      terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
+    }
+  }, [terminalText]);
 
   const generateContributionGrid = () => {
     const weeks = 40;
@@ -167,7 +174,7 @@ const GithubShowcase = () => {
               <div className="bg-[#010409] rounded-xl p-6 relative z-10 h-full w-full">
                 
                 {/* Interactive Terminal */}
-                <div className="mb-6 font-mono-sm text-[#8b949e] bg-[#161b22] rounded-lg border border-[#30363d] h-52 overflow-hidden shadow-inner flex flex-col">
+                <div className="mb-6 font-mono-sm text-[#8b949e] bg-[#161b22] rounded-lg border border-[#30363d] h-64 overflow-hidden shadow-inner flex flex-col">
                    {/* Terminal Header */}
                    <div className="bg-[#161b22]/50 border-b border-[#30363d]/50 px-4 py-2 flex items-center justify-between gap-1.5">
                      <div className="flex gap-1.5">
@@ -189,7 +196,7 @@ const GithubShowcase = () => {
                      </div>
                    </div>
                    {/* Terminal Screen */}
-                   <div className="p-4 whitespace-pre text-[12px] leading-relaxed flex-1 overflow-y-auto hide-scrollbar text-left font-mono">
+                   <div ref={terminalRef} className="p-4 whitespace-pre text-[12px] leading-relaxed flex-1 overflow-y-auto custom-terminal-scrollbar text-left font-mono">
                      {terminalText}
                      <span className="inline-block w-2 h-4 bg-primary-fixed ml-1 animate-pulse align-middle"></span>
                    </div>

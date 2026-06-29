@@ -60,7 +60,7 @@ const Process = () => {
             />
 
             <div className="flex flex-col gap-12 sm:gap-20">
-              {steps.map((step, idx) => (
+              {steps.map((step) => (
                 <motion.div 
                   key={step.id}
                   initial={{ opacity: 0, x: 20 }}
